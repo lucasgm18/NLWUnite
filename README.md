@@ -1,22 +1,21 @@
-# 🚀 NLW UNITE
+# 🎉 Cadastro de Eventos
 
-📝 **Descrição**: Um pequeno desenvolvimento em node.js e typescript
+📝 **Descrição**: Este sistema de cadastro de eventos facilita a organização e inscrição em eventos variados, permitindo que os organizadores criem eventos com detalhes como data, local e descrição, e que os participantes se inscrevam facilmente.
 
 ## 🛠 Tecnologias Utilizadas
 
-![Node.js](https://img.shields.io/badge/node-%3E%3D14.17.0-brightgreen)
-![TypeScript](https://img.shields.io/badge/TypeScript-4.0-blue)
-![Fastify](https://img.shields.io/badge/Fastify-3.15.1-lightgrey)
-![Zod](https://img.shields.io/badge/Zod-3.11.6-blue)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Fastify](https://img.shields.io/badge/Fastify-000000?style=flat-square&logo=fastify&logoColor=white)
+![Zod](https://img.shields.io/badge/Zod-FFFFFF?style=flat-square&logo=zod&logoColor=E34F26)
 
 ## ⚙️ Configuração
 
-🔧 **Configurar o ambiente**: Para rodar o projeto localmente, é necessário ajustar as configurações ambientais.
+🔧 **Configurar o ambiente**: Para rodar o projeto localmente, é necessário realizar algumas configurações simples:
 
 1. Crie um arquivo `.env` na raiz do projeto.
-2. Adicione as variáveis de ambiente necessárias (ex: `PORT=3000`).
+2. Adicione as variáveis de ambiente necessárias, por exemplo:
 
-## 🚀 Executando o Projeto
 
 🔄 **Iniciar o servidor**:
 ```bash
