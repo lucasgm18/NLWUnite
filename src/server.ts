@@ -17,17 +17,26 @@ app.post('/events', async (request, reply) => {
        maximumAttendees: z.number().int().positive().nullable(), 
     })
 
-    const data = createEventSchema.parse(request.body)
+    const {
+        title,
+        details,
+        maximumAttendees,
+    } = createEventSchema.parse(request.body)
 
-    const slug = generateSlug(data.title)
-
+    const slug = generateSlug(title)
+ 
+    const eventWithSameSlug = await prisma.event.findUnique({
+        where: {
+            slug,
+        }
+    })
     
     
     const event = await prisma.event.create({
         data: {
-          title: data.title,
-          details: data.details,
-          maximumAttendees: data.maximumAttendees,
+          title,
+          details,
+          maximumAttendees,
           slug,
         },
     })
