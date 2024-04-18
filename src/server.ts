@@ -10,6 +10,22 @@ const prisma = new PrismaClient({
     log: ['query'],
 })
 
+
+// Corpo em requisição (Request Body)
+// Parâemetros de busca(Search Params / Query Params) 'http://localhost:3333/users?name=lucas'
+// Parâmetros de rota (Route Params) -> Identificação de recursos 'DELETE http://localhost:3333/users/5'
+// Cabeçalhos (Headers)  -> Contexto
+
+// Semânticas = Significado
+
+// Driver nativo / Query Bulders / ORMs
+
+// Object Relational Mapping (Hibernate / Doctrine / ActiveRecord)
+
+// 20x => Sucesso
+// 30x => Redirecionamento
+// 40x => Erro do cliente (Erro em alguma informação enviada por QUEM está fazendo a chamada p/ API)
+// 50x => Erro do servidor (Um erro que está acontecendo INDEPENDENTE do que está sendo enviado p/ o servidor)
 app.post('/events', async (request, reply) => {
     const createEventSchema = z.object({
        title: z.string().min(4),
