@@ -31,6 +31,9 @@ app.post('/events', async (request, reply) => {
         }
     })
     
+    if (eventWithSameSlug !== null) {
+        throw new Error('Outro evento com o mesmo titulo já existe.')
+    }
     
     const event = await prisma.event.create({
         data: {
