@@ -21,7 +21,22 @@
 ```bash
 npm run dev
 
+## 📖 Anotações
+ Corpo em requisição (Request Body)
+ Parâemetros de busca(Search Params / Query Params) 'http://localhost:3333/users?name=lucas'
+ Parâmetros de rota (Route Params) -> Identificação de recursos 'DELETE http://localhost:3333/users/5'
+ Cabeçalhos (Headers)  -> Contexto
 
+ Semânticas = Significado
+
+ Driver nativo / Query Bulders / ORMs
+
+ Object Relational Mapping (Hibernate / Doctrine / ActiveRecord)
+
+ 20x => Sucesso
+ 30x => Redirecionamento
+ 40x => Erro do cliente (Erro em alguma informação enviada por QUEM está fazendo a chamada p/ API)
+ 50x => Erro do servidor (Um erro que está acontecendo INDEPENDENTE do que está sendo enviado p/ o servidor)
 
 Esse README usa emojis para destacar seções importantes e inclui imagens shields para cada tecnologia principal, fornecendo um rápido reconhecimento visual das ferramentas envolvidas no projeto. Certifique-se de atualizar o link dos shields e adicionar informações específicas sobre seu projeto para torná-lo mais relevante e útil!
 
