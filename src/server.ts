@@ -1,9 +1,13 @@
 import fastify from "fastify";
+import {  serializerCompiler, validatorCompiler, ZodTypeProvider } from 'fastify-type-provider-zod'
 import { z } from 'zod';
 import { PrismaClient } from '@prisma/client';
 import { generateSlug } from "./utils/generate-slug";
  
 const app = fastify()
+
+app.setValidatorCompiler(validatorCompiler);
+app.setSerializerCompiler(serializerCompiler);
 
 
 const prisma = new PrismaClient({
@@ -11,22 +15,8 @@ const prisma = new PrismaClient({
 })
 
 
-// Corpo em requisição (Request Body)
-// Parâemetros de busca(Search Params / Query Params) 'http://localhost:3333/users?name=lucas'
-// Parâmetros de rota (Route Params) -> Identificação de recursos 'DELETE http://localhost:3333/users/5'
-// Cabeçalhos (Headers)  -> Contexto
 
-// Semânticas = Significado
-
-// Driver nativo / Query Bulders / ORMs
-
-// Object Relational Mapping (Hibernate / Doctrine / ActiveRecord)
-
-// 20x => Sucesso
-// 30x => Redirecionamento
-// 40x => Erro do cliente (Erro em alguma informação enviada por QUEM está fazendo a chamada p/ API)
-// 50x => Erro do servidor (Um erro que está acontecendo INDEPENDENTE do que está sendo enviado p/ o servidor)
-app.post('/events', async (request, reply) => {
+app.withTypeProvider<ZodTypeProvider>().post('/events', async (request, reply) => {
     const createEventSchema = z.object({
        title: z.string().min(4),
        details: z.string().nullable(),
@@ -60,7 +50,7 @@ app.post('/events', async (request, reply) => {
         },
     })
 
-    //return { eventId: event.id }
+    
     return reply.status(201).send({ eventId: event.id })
 })
 
