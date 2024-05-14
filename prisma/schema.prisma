@@ -15,7 +15,18 @@ model Event {
   details     String?
   slug String @unique
   maximumAttendees Int? @map("maximum_attendees")
-
+  Attendee   Attendee[]
 
   @@map("events")
+}
+
+model Attendee {
+  id      Int     @id @default(autoincrement())
+  name    String
+  email   String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  event  Event  @relation(fields: [eventId], references: [id])
+  eventId String
+  @@map("attendees")
 }
